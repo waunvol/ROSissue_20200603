@@ -1,0 +1,12 @@
+#controller_manager_ns: mybot/controller_manager
+controller_list:
+ - name: mybot/my_trajectory_controller
+   action_ns: follow_joint_trajectory
+   type: FollowJointTrajectory
+   default: true
+   joints:
+    - joint0
+    - joint1
+    - joint2
+    - joint3
+    - joint4

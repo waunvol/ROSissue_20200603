@@ -1,0 +1,12 @@
+<launch>
+  <include file="$(find mybot_control)/launch/gazebo_joint_state.launch" >
+  </include> 
+
+  <include file="$(find mybot_control)/launch/trajectory.launch" >
+  </include> 
+
+ <!-- <include file="$(find mybot_control)/launch/hw.launch" >
+  </include> -->
+
+
+</launch>

@@ -1,0 +1,10 @@
+<launch>    
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mybot_description)/urdf/xacro/mybot.xacro'" />
+
+  <node name="myhw" pkg="mybot_control" type="myhw" output="screen"/>
+  
+  <rosparam file="$(find mybot_control)/config/hw.yaml" command="load"/>
+  <node name="my_ctrl_spawner" pkg="controller_manager" type="controller_manager" args="spawn my_ctrl" respawn="false" output="screen"/>
+</launch>
+
+

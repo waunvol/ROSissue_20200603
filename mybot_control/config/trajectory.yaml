@@ -1,0 +1,42 @@
+mybot:
+  my_trajectory_controller:
+    type: "position_controllers/JointTrajectoryController"
+    joints:
+      - joint0
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+
+# publish all joint states
+#  joint_state_controller:
+#    type: joint_state_controller/JointStateController
+#    publish_rate: 50
+  constraints:
+      goal_time: &goal_time_constraint 10
+      stopped_velocity_tolerance: 0
+      joint0:
+        goal: &goal_pos_constraint 0.5
+        trajectory: &trajectory_pos_constraint 0.1
+      joint1:
+        goal: *goal_pos_constraint
+        trajectory: *trajectory_pos_constraint
+      joint2:
+        goal: *goal_pos_constraint
+        trajectory: *trajectory_pos_constraint
+      joint3:
+        goal: *goal_pos_constraint
+        trajectory: *trajectory_pos_constraint
+      joint4:
+        goal: *goal_pos_constraint
+        trajectory: *trajectory_pos_constraint
+
+
+#gazebo_ros_control/pid_
+  gains:
+      joint0:   {p: 0.6, i: 0.1, d: 0.16, i_clamp: 1}
+      joint1:   {p: 0.6, i: 0.2, d: 0.1, i_clamp: 1}
+      joint2:   {p: 0.6, i: 0.1, d: 0.05, i_clamp: 1}
+      joint3:   {p: 0.45, i: 0.015, d: 0.01, i_clamp: 1}
+      joint4:   {p: 0.3, i: 0.01, d: 0.01, i_clamp: 1}
+

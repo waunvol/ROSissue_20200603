@@ -1,0 +1,20 @@
+<launch>
+   <!--robot description-->
+   <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mybot_description)/urdf/moveit_gazebo/mybot.xacro'" />
+
+   <!-- my hardwareinterface -->
+   <node name="mybot" pkg="mybot_control" type="myhw" output="screen"/>
+
+   <!-- Load joint controller configurations from YAML file to parameter server -->
+   <rosparam file="$(find mybot_control)/config/trajectory.yaml" command="load"/>
+ 
+    <!-- load the controllers -->
+    <node name="trajectory_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+	output="screen" ns="/mybot" args="my_trajectory_controller"/>
+ 		
+
+   <!--about joint states-->
+    <!--<node name="joint_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+          output="screen" args="joint_state_controller" /> -->
+
+</launch>

@@ -1,0 +1,6 @@
+<launch>
+
+	<node pkg="mybot_control" name="rob_mover" type="rob_mover" output="screen"> <!--launch-prefix="xterm−e"-->
+	</node>
+
+</launch>

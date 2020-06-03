@@ -1,0 +1,17 @@
+my_ctrl:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - joint0
+    - joint1
+    - joint2
+    - joint3
+    - joint4
+
+  constraints:
+      goal_time: 0.5
+      stopped_velocity_tolerance: 0.2
+  stop_trajectory_duration: 0
+  state_publish_rate:  20
+  action_monitor_rate: 10
+
+
